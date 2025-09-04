@@ -1,0 +1,1032 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School UG Link Up | Share Educational Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #0d47a1;
+            --accent-color: #ff5722;
+            --light-color: #f5f5f5;
+            --dark-color: #212121;
+            --text-color: #424242;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --error-color: #f44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-text span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .auth-buttons .btn {
+            margin-left: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #e64a19;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            padding: 15px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #e64a19;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #757575;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Documents Grid */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .document-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .document-thumbnail {
+            height: 180px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .document-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pdf-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #f44336;
+        }
+
+        .document-info {
+            padding: 15px;
+        }
+
+        .document-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .document-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #757575;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .document-actions {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .document-actions a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .document-actions a:hover {
+            text-decoration: underline;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .upload-area {
+            border: 2px dashed #bdbdbd;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: #f5f9ff;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .upload-text h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .upload-text p {
+            color: #757575;
+            margin-bottom: 15px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .upload-form {
+            display: none;
+        }
+
+        .upload-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #bdbdbd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        /* PDF Viewer Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--light-color);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #757575;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--error-color);
+        }
+
+        .modal-body {
+            padding: 20px;
+            height: 70vh;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-footer {
+            padding: 15px 20px;
+            background-color: var(--light-color);
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: #f5f7fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-desc {
+            color: #616161;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdbdbd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdbdbd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+
+            .auth-buttons {
+                margin-top: 15px;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+
+            .search-bar button {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="https://via.placeholder.com/40x40" alt="Logo">
+                    <span class="logo-text">High School<span>.UG</span></span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Documents</a></li>
+                    <li><a href="#">Subjects</a></li>
+                    <li><a href="#">Schools</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Login</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Share and Discover Educational Resources</h1>
+            <p>Upload, download, and view PDF documents from high schools across Uganda. Connect with students and teachers nationwide.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for notes, past papers, textbooks...">
+                <button type="submit"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Popular Documents Section -->
+            <section>
+                <div class="section-title">
+                    <h2>Popular Documents</h2>
+                    <p>Most downloaded and viewed resources by students across Uganda</p>
+                </div>
+                <div class="documents-grid">
+                    <!-- Document Card 1 -->
+                    <div class="document-card" onclick="openPdfModal('Biology S1 Notes', 'Uploaded by: St. Mary\'s College Kisubi', '5.2 MB', '1024 downloads')">
+                        <div class="document-thumbnail">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
+                        </div>
+                        <div class="document-info">
+                            <h3 class="document-title">Biology S1 Notes - Complete Syllabus</h3>
+                            <div class="document-meta">
+                                <span><i class="fas fa-user"></i> SMACK</span>
+                                <span><i class="fas fa-download"></i> 1,024</span>
+                            </div>
+                            <div class="document-actions">
+                                <a href="#"><i class="fas fa-eye"></i> Preview</a>
+                                <a href="#" download><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Document Card 2 -->
+                    <div class="document-card" onclick="openPdfModal('Mathematics Past Papers', 'Uploaded by: Namilyango College', '3.8 MB', '876 downloads')">
+                        <div class="document-thumbnail">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
+                        </div>
+                        <div class="document-info">
+                            <h3 class="document-title">Mathematics Past Papers (2015-2022)</h3>
+                            <div class="document-meta">
+                                <span><i class="fas fa-user"></i> Namilyango</span>
+                                <span><i class="fas fa-download"></i> 876</span>
+                            </div>
+                            <div class="document-actions">
+                                <a href="#"><i class="fas fa-eye"></i> Preview</a>
+                                <a href="#" download><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Document Card 3 -->
+                    <div class="document-card" onclick="openPdfModal('Chemistry Practical Guide', 'Uploaded by: Uganda Martyrs SS Namugongo', '4.5 MB', '721 downloads')">
+                        <div class="document-thumbnail">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
+                        </div>
+                        <div class="document-info">
+                            <h3 class="document-title">Chemistry Practical Guide for S3-S4</h3>
+                            <div class="document-meta">
+                                <span><i class="fas fa-user"></i> UMSSN</span>
+                                <span><i class="fas fa-download"></i> 721</span>
+                            </div>
+                            <div class="document-actions">
+                                <a href="#"><i class="fas fa-eye"></i> Preview</a>
+                                <a href="#" download><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Document Card 4 -->
+                    <div class="document-card" onclick="openPdfModal('History of Uganda Notes', 'Uploaded by: King\'s College Budo', '2.9 MB', '654 downloads')">
+                        <div class="document-thumbnail">
+                            <i class="fas fa-file-pdf pdf-icon"></i>
+                        </div>
+                        <div class="document-info">
+                            <h3 class="document-title">History of Uganda (S1-S4 Complete Notes)</h3>
+                            <div class="document-meta">
+                                <span><i class="fas fa-user"></i> KCB</span>
+                                <span><i class="fas fa-download"></i> 654</span>
+                            </div>
+                            <div class="document-actions">
+                                <a href="#"><i class="fas fa-eye"></i> Preview</a>
+                                <a href="#" download><i class="fas fa-download"></i> Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upload Section -->
+            <section>
+                <div class="section-title">
+                    <h2>Share Your Resources</h2>
+                    <p>Contribute to the community by uploading educational materials</p>
+                </div>
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="upload-text">
+                            <h3>Drag & Drop your files here</h3>
+                            <p>or click to browse files (PDF only, max 20MB)</p>
+                            <button class="btn btn-accent">Select Files</button>
+                        </div>
+                        <input type="file" id="fileInput" class="file-input" accept=".pdf">
+                    </div>
+                    <div class="upload-form" id="uploadForm">
+                        <div class="form-group">
+                            <label for="documentTitle">Document Title</label>
+                            <input type="text" id="documentTitle" placeholder="Enter document title">
+                        </div>
+                        <div class="form-group">
+                            <label for="documentDescription">Description</label>
+                            <textarea id="documentDescription" placeholder="Brief description of the document"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="documentSubject">Subject</label>
+                            <select id="documentSubject">
+                                <option value="">Select subject</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="biology">Biology</option>
+                                <option value="history">History</option>
+                                <option value="geography">Geography</option>
+                                <option value="english">English</option>
+                                <option value="luganda">Luganda</option>
+                                <option value="entrepreneurship">Entrepreneurship</option>
+                                <option value="computer-studies">Computer Studies</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="documentClass">Class Level</label>
+                            <select id="documentClass">
+                                <option value="">Select class</option>
+                                <option value="s1">Senior 1</option>
+                                <option value="s2">Senior 2</option>
+                                <option value="s3">Senior 3</option>
+                                <option value="s4">Senior 4</option>
+                                <option value="s5">Senior 5</option>
+                                <option value="s6">Senior 6</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-outline">Cancel</button>
+                            <button class="btn btn-primary">Upload Document</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Use High School UG Link Up?</h2>
+                <p>Our platform offers unique benefits for students and teachers across Uganda</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="feature-title">Comprehensive Resources</h3>
+                    <p class="feature-desc">Access notes, past papers, and textbooks from top schools nationwide.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Collaborative Learning</h3>
+                    <p class="feature-desc">Connect with students and teachers from different schools to share knowledge.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Mobile Friendly</h3>
+                    <p class="feature-desc">Access all resources on any device, even with limited internet connectivity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Performance Tracking</h3>
+                    <p class="feature-desc">Monitor which resources are most helpful based on download and rating data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Viewer Modal -->
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Document Preview</h3>
+                <button class="close-modal" onclick="closePdfModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfViewer" class="pdf-viewer" src="" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <div class="document-info">
+                    <p id="modalDocInfo">Uploaded by: St. Mary's College Kisubi | 5.2 MB | 1024 downloads</p>
+                </div>
+                <a href="#" class="btn btn-primary download-btn" download>
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>High School UG Link Up</h3>
+                    <p>Connecting students and teachers across Uganda to share educational resources and improve learning outcomes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Browse Documents</a></li>
+                        <li><a href="#">Upload Resources</a></li>
+                        <li><a href="#">Schools Directory</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Subjects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sciences</a></li>
+                        <li><a href="#">Humanities</a></li>
+                        <li><a href="#">Languages</a></li>
+                        <li><a href="#">Vocational</a></li>
+                        <li><a href="#">All Subjects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@highschoolug.link</li>
+                        <li><i class="fas fa-phone"></i> +256 700 123456</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 High School UG Link Up. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Upload Area Functionality
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const uploadForm = document.getElementById('uploadForm');
+
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                const file = e.target.files[0];
+                if (file.type === 'application/pdf') {
+                    uploadArea.style.display = 'none';
+                    uploadForm.classList.add('active');
+                    // You would typically upload the file here
+                    console.log('PDF file selected:', file.name);
+                } else {
+                    alert('Please select a PDF file only.');
+                }
+            }
+        });
+
+        // Drag and Drop Functionality
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'var(--primary-color)';
+            uploadArea.style.backgroundColor = 'rgba(30, 136, 229, 0.1)';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#bdbdbd';
+            uploadArea.style.backgroundColor = 'transparent';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#bdbdbd';
+            uploadArea.style.backgroundColor = 'transparent';
+
+            if (e.dataTransfer.files.length > 0) {
+                const file = e.dataTransfer.files[0];
+                if (file.type === 'application/pdf') {
+                    fileInput.files = e.dataTransfer.files;
+                    uploadArea.style.display = 'none';
+                    uploadForm.classList.add('active');
+                    console.log('PDF file dropped:', file.name);
+                } else {
+                    alert('Please drop a PDF file only.');
+                }
+            }
+        });
+
+        // PDF Modal Functionality
+        function openPdfModal(title, info, size, downloads) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDocInfo').textContent = `${info} | ${size} | ${downloads}`;
+            document.getElementById('pdfViewer').src = 'https://example.com/sample.pdf'; // Replace with actual PDF URL
+            document.getElementById('pdfModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePdfModal() {
+            document.getElementById('pdfModal').style.display = 'none';
+            document.getElementById('pdfViewer').src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('pdfModal')) {
+                closePdfModal();
+            }
+        });
+
+        // Search Functionality
+        const searchBar = document.querySelector('.search-bar input');
+        searchBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.querySelector('.search-bar button').addEventListener('click', performSearch);
+
+        function performSearch() {
+            const query = searchBar.value.trim();
+            if (query) {
+                alert(`Searching for: ${query}`); // Replace with actual search functionality
+                // In a real implementation, you would redirect to search results or fetch results via AJAX
+            }
+        }
+    </script>
+</body>
+</html>
